@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impactando Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .header, .benefits, .faq, .bonus, .closing-message {
+            text-align: center;
+            padding: 20px;
+        }
+        .header {
+            background-color: #1f1f1f;
+            color: #ffcc00;
+        }
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            color: #8a2be2;
+        }
+        .header p {
+            font-size: 18px;
+            color: #d8bfd8;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+            max-width: 90%;
+            margin: auto;
+        }
+        .video-container {
+            width: 100%;
+            max-width: 640px;
+            margin: auto;
+            background-color: #000;
+        }
+        iframe {
+            width: 100%;
+            height: 360px;
+            border-radius: 10px;
+        }
+        .price-section {
+            margin-top: 20px;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        .price-label {
+            font-size: 18px;
+            color: #8a2be2;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: #ff6b6b;
+            font-size: 24px;
+        }
+        .new-price-box {
+            background-color: #1f1f1f;
+            border: 2px solid #8a2be2;
+            border-radius: 10px;
+            padding: 10px 20px;
+            color: #b2ff59;
+            font-size: 36px;
+            font-weight: bold;
+            font-family: 'Oswald', sans-serif;
+        }
+        .countdown {
+            font-size: 22px;
+            color: #ffffff;
+            background-color: #8a2be2;
+            padding: 10px 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-weight: bold;
+            animation: blink 1s linear infinite;
+            display: inline-block;
+            font-family: 'Oswald', sans-serif;
+        }
+        @keyframes blink {
+            50% { opacity: 0.5; }
+        }
+        .cta-button {
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: #ffcc00;
+            color: #121212;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px 0;
+            font-family: 'Oswald', sans-serif;
+        }
+        .fixed-cta {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            z-index: 1000;
+        }
+        .fixed-cta a {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ffcc00;
+            color: #121212;
+            font-size: 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+        }
+        .benefits ul, .faq ul, .bonus ul {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: auto;
+            text-align: left;
+        }
+        .benefits li, .faq li, .bonus li {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+        }
+        .benefit-icon {
+            color: #8a2be2;
+            margin-right: 10px;
+        }
+        .highlight {
+            color: #ffcc00;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+        }
+        .progress-bar-container {
+            background-color: #333;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 400px;
+            height: 25px;
+        }
+        .progress-bar {
+            width: 85%;
+            height: 100%;
+            background-color: #8a2be2;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 25px;
+            color: #121212;
+            font-family: 'Oswald', sans-serif;
+        }
+        .testimonials-section h2 {
+            color: #8a2be2;
+            font-family: 'Oswald', sans-serif;
+            text-align: center;
+        }
+        .faq h2, .bonus h2, .closing-message h2 {
+            color: #ffcc00;
+            font-family: 'Oswald', sans-serif;
+            text-align: center;
+        }
+        .gain-loss-section {
+            padding: 20px;
+            background-color: #1f1f1f;
+            text-align: center;
+        }
+        .gain-loss-section h2 {
+            color: #8a2be2;
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .gain-loss-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .gain-loss-item {
+            width: 90%;
+            max-width: 600px;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 18px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .gain {
+            background-color: #2b2b2b;
+            color: #b2ff59;
+            border-left: 5px solid #b2ff59;
+        }
+        .loss {
+            background-color: #3a3a3a;
+            color: #ff5252;
+            border-left: 5px solid #ff5252;
+        }
+        .section-guarantee {
+            background-color: #1f1f1f;
+            color: #b2ff59;
+            font-size: 18px;
+            border: 2px solid #b2ff59;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            .price-section, .cta-button, .countdown {
+                font-size: 18px;
+            }
+            .old-price, .new-price-box {
+                font-size: 20px;
+            }
+            .cta-button, .fixed-cta a {
+                padding: 10px 20px;
+                font-size: 18px;
+            }
+            .video-container iframe {
+                height: 200px;
+            }
+            .gain-loss-item {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Impactando Online</h1>
+        <p>Descubrí como disfrutar plena y libremente de tu vida mientras solo trabajas en TUS TIEMPOS LIBRES.</p>
+    </div>
+
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/KjRFxwBgaAw" title="VCL Video" allowfullscreen></iframe>
+        </div>
+
+        <div class="benefits">
+            <h2>¿Qué Ganas si Arrancas Ahora?</h2>
+            <ul>
+                <li><span class="benefit-icon">📅</span> Flexibilidad de Horario</li>
+                <li><span class="benefit-icon">💰</span> Independencia Financiera</li>
+                <li><span class="benefit-icon">🤝</span> Red de Contactos</li>
+                <li><span class="benefit-icon">🔒</span> Acceso Permanente</li>
+            </ul>
+            <a href="https://wa.me/5493541706437?text=Quiero%20empezar" class="cta-button">Quiero Empezar</a>
+        </div>
+
+        <div class="price-section">
+            <span class="price-label">Antes 👉</span>
+            <span class="old-price">$1000</span>
+            <div class="new-price-box">$150</div>
+            <span class="price-label">👈 Ahora</span>
+        </div>
+
+        <div class="countdown" id="countdown">Quedan 10 minutos para obtener el 85% de descuento</div>
+        
+        <div class="progress-bar-container">
+            <div class="progress-bar">85% de las plazas llenas</div>
+        </div>
+
+        <a href="https://wa.me/5493541706437?text=Quiero%20empezar" class="cta-button">Quiero Empezar</a>
+
+        <div class="section-guarantee">
+            Inscribite sin riesgos. Si en 3 días no estás 100% satisfecho, te devolvemos tu dinero.
+        </div>
+    </div>
+
+    <div class="testimonials-section">
+        <h2>Historias de Éxito en Video</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/V6a22Hk6h_o" title="Testimonio 1" allowfullscreen></iframe>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/YkANArqD18I" title="Testimonio 2" allowfullscreen></iframe>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/bSW7-i9IlY0" title="Testimonio 3" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Nueva sección de testimonios en imágenes -->
+    <div class="testimonials-section">
+        <h2>Más Testimonios</h2>
+        <div class="image-testimonials" style="display: flex; justify-content: center; flex-wrap: wrap;">
+            <img src="1.jpg" alt="Testimonio Imagen 1" style="width: 20%; margin: 10px; border-radius: 10px; border: 2px solid #8a2be2;">
+            <img src="2.jpg" alt="Testimonio Imagen 2" style="width: 20%; margin: 10px; border-radius: 10px; border: 2px solid #8a2be2;">
+            <img src="3.jpg" alt="Testimonio Imagen 3" style="width: 20%; margin: 10px; border-radius: 10px; border: 2px solid #8a2be2;">
+            <img src="4.jpg" alt="Testimonio Imagen 4" style="width: 20%; margin: 10px; border-radius: 10px; border: 2px solid #8a2be2;">
+        </div>
+    </div>
+
+    <div class="gain-loss-section">
+        <h2>¿Qué Ganarías si Arrancas? ¿Qué Perderías si No Arrancas?</h2>
+        <div class="gain-loss-container">
+            <div class="gain-loss-item gain">
+                <strong>✔️ Libertad de Horarios y Estilo de Vida:</strong> Organizar tus días a tu manera, sin depender de un horario fijo, y vivir a tu propio ritmo.
+            </div>
+            <div class="gain-loss-item gain">
+                <strong>✔️ Estabilidad y Crecimiento Financiero:</strong> Con el conocimiento adecuado, aprendé a generar ingresos sin depender de un jefe.
+            </div>
+            <div class="gain-loss-item gain">
+                <strong>✔️ Apoyo Constante y Comunidad Activa:</strong> Acceso a una red de expertos y una comunidad con más de 30 mil personas.
+            </div>
+            <div class="gain-loss-item gain">
+                <strong>✔️ Acceso Exclusivo a Habilidades Valiosas:</strong> Invertí en habilidades que te mantendrán actualizado y con oportunidades de crecimiento.
+            </div>
+            <div class="gain-loss-item loss">
+                <strong>❌ Seguir Atado a Horarios y Reglas de Otros:</strong> Atrapado en el mismo trabajo, dejando que otros decidan tu futuro.
+            </div>
+            <div class="gain-loss-item loss">
+                <strong>❌ Estancamiento Financiero:</strong> La frustración de ver pasar los años sin estabilidad ni oportunidades para mejorar tu vida.
+            </div>
+            <div class="gain-loss-item loss">
+                <strong>❌ Desaprovechar una Comunidad de Apoyo:</strong> Perder la posibilidad de recibir acompañamiento en cada paso y resolver tus dudas.
+            </div>
+            <div class="gain-loss-item loss">
+                <strong>❌ Vivir con el Miedo de No Salir Adelante:</strong> Sentir que podrías haber hecho más, mientras otros avanzan y vos seguís en el mismo lugar.
+            </div>
+        </div>
+    </div>
+
+    <div class="bonus">
+        <h2>Bonos Especiales por Tiempo Limitado</h2>
+        <ul>
+            <li>🎁 1 sesión de asesoría personalizada para los primeros 50 inscriptos.</li>
+            <li>📚 Acceso exclusivo a materiales adicionales.</li>
+        </ul>
+    </div>
+
+    <div class="faq">
+        <h2>Preguntas Frecuentes</h2>
+        <ul>
+            <li>❓ <span class="highlight">¿Necesito experiencia previa para este curso?</span> No, este curso está diseñado para personas sin experiencia.</li>
+            <li>📅 <span class="highlight">¿Cuánto tiempo lleva ver resultados?</span> Puedes comenzar a ver cambios en el primer mes si aplicas los conocimientos.</li>
+            <li>💯 <span class="highlight">¿Qué pasa si no puedo asistir a las clases en vivo?</span> Todas las clases quedan grabadas para que las veas a tu ritmo.</li>
+            <li>🖥️ <span class="highlight">¿Puedo acceder al curso desde cualquier dispositivo?</span> Sí, puedes acceder desde tu computadora, tablet o celular.</li>
+            <li>💳 <span class="highlight">¿Cuáles son las formas de pago disponibles?</span> Aceptamos tarjetas de crédito, débito y transferencias bancarias.</li>
+            <li>🌎 <span class="highlight">¿Puedo acceder desde cualquier país?</span> Sí, este curso está disponible en todos los países de habla hispana.</li>
+            <li>⏰ <span class="highlight">¿Hay un límite de tiempo para acceder al contenido?</span> No, una vez inscrito, tienes acceso de por vida a todo el contenido.</li>
+            <li>🙋 <span class="highlight">¿Qué tipo de soporte recibiré durante el curso?</span> Tendrás acceso a una comunidad activa y sesiones de preguntas y respuestas.</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <a href="https://wa.me/5493541706437?text=Quiero%20empezar" class="cta-button">Quiero Empezar</a>
+    </div>
+
+    <div class="closing-message">
+        <h2>¿Estás listo para dar el primer paso hacia tu éxito?</h2>
+        <p>La oportunidad de alcanzar tus metas está a un solo clic. ¡Aprovecha esta oferta antes de que sea tarde!</p>
+    </div>
+
+    <div class="fixed-cta">
+        <a href="https://wa.me/5493541706437?text=Quiero%20empezar">Quiero Empezar</a>
+    </div>
+
+    <script>
+        const countdownElement = document.getElementById('countdown');
+        let timeLeft = 10 * 60;
+
+        function updateCountdown() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            countdownElement.textContent = `Quedan ${minutes}:${seconds < 10 ? '0' : ''}${seconds} minutos para obtener el 85% de descuento`;
+            if (timeLeft > 0) timeLeft--;
+            else countdownElement.textContent = "El descuento ha terminado.";
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+
+</body>
+</html>
